@@ -26,8 +26,6 @@ module.exports.routes = {
   'GET /post/:postId': 'PostsController.findbyid',
   'DELETE /delete': 'delete',
   
-  '/home': 'HomeController.home'
-
   /***************************************************************************
   *                                                                          *
   * More custom routes here...                                               *
