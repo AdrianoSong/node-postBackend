@@ -21,6 +21,13 @@ module.exports.routes = {
 
   '/': { view: 'pages/homepage' },
 
+  //GetToken: put the value on header param X-CSRF-Token
+  'GET /getToken': { action: 'security/grant-csrf-token' },
+
+  //Users API
+  'POST /user': 'create-user',
+
+  //Posts API
   '/posts': 'PostsController.posts',
   'POST /post': 'post',
   'GET /post/:postId': 'PostsController.findbyid',

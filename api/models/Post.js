@@ -7,6 +7,11 @@ module.exports = {
         body: {
             type: 'string',
             required: true
+        },
+
+        //reference to User
+        postOwner: {
+            model: 'user'
         }
     }
 }

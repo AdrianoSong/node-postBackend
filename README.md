@@ -2,6 +2,12 @@
 
 a [Sails v1](https://sailsjs.com) application
 
+### Deployed on Heroku:
+[click here](https://mysterious-waters-52479.herokuapp.com/)
+
+### Test local deployment:
+sails lift --prod
+
 ### Frameworks
 - Node.js
 - Sails MVC
