@@ -14,6 +14,7 @@ sails lift --prod
 - Nodemon (hot reload pages)
 - Sails Morgan (print endpoints info on terminal)
 - Waterline ORM (Sails database)
+- CSRF-Token (for POST requests)
 
 ### Tutorial link
 + [Let's build that app](https://www.youtube.com/watch?v=WRAAMMycrNM)
