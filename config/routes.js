@@ -25,7 +25,8 @@ module.exports.routes = {
   'GET /getToken': { action: 'security/grant-csrf-token' },
 
   //Users API
-  'POST /user': 'create-user',
+  'POST /createUser': 'create-user',
+  'POST /user': 'get-user',
 
   //Posts API
   '/posts': 'PostsController.posts',
@@ -43,6 +44,4 @@ module.exports.routes = {
   * not match any of those, it is matched against static assets.             *
   *                                                                          *
   ***************************************************************************/
-
-
 };

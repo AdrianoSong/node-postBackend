@@ -1,8 +1,7 @@
 module.exports = {
     attributes: {
         name: {
-            type: 'string',
-            required: true
+            type: 'string'
         },
         email: {
             type: 'string',
@@ -19,6 +18,5 @@ module.exports = {
             collection: 'post',
             via: 'postOwner'
         }
-        
     }
 }

@@ -22,28 +22,22 @@ module.exports = {
   },
 
   exits: {
-    creatingSuccess: {
-      description: 'New user has been created'
-    },
-
     existingUser: {
-      description: 'User already registered'
+      description: 'User already registered',
+      responseType: 'serverError'
     }
   },
 
   fn: async function (inputs) {
 
-    const user = await User.find()
-    user.filter(function(user){ 
-      return user.email == inputs.email
-    })
+    const user = await User.findOne({email: inputs.email})
 
-    if (user.length > 0) {
+    if (user != null) { 
       throw 'existingUser'
     } 
 
     await User.create({name: inputs.name, email: inputs.email, password: inputs.password})
 
-    return 'creatingSuccess'
+    return 'New user has been created'
   }
 };
