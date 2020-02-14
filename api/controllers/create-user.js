@@ -30,14 +30,17 @@ module.exports = {
 
   fn: async function (inputs) {
 
-    const user = await User.findOne({email: inputs.email})
+    const user = await User.findOne({ email: inputs.email })
 
     if (user != null) { 
       throw 'existingUser'
     } 
 
-    await User.create({name: inputs.name, email: inputs.email, password: inputs.password})
+    await User.create({ name: inputs.name, email: inputs.email, password: inputs.password })
 
-    return 'New user has been created'
+    //return recent add user
+    const newUser = await User.findOne({ email: inputs.email })
+
+    return newUser
   }
 };
