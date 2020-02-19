@@ -14,17 +14,33 @@ module.exports = {
     postDescription: {
       type: 'string',
       required: true
+    },
+    userId: {
+      type: 'number',
+      required: true
     }
   },
 
   exits: {
-
+    postNotCreated: {
+      description: 'Post not created',
+      responseType: 'serverError'
+    }
   },
 
   fn: async function (inputs) {
 
-    await Post.create({title: inputs.title, body: inputs.postDescription}) 
+    const user = await User.findOne({id: inputs.userId})
 
-    return;
+    if (user != null) {
+      await Post.create({ title: inputs.title, body: inputs.postDescription, postOwner: user.id }) 
+      
+      //return recent add post
+      const newPost = await Post.findOne({ title: inputs.title, body: inputs.postDescription, postOwner: user.id })
+      return newPost
+    
+    } else {
+      return 'postNotCreated'
+    }
   }
 };
